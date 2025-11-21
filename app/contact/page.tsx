@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
@@ -17,42 +16,18 @@ type ContactFormData = {
 };
 
 export default function ContactPage() {
-  const searchParams = useSearchParams();
-
-  // On lit les paramètres d'URL pour les CTA
-  const mode = searchParams.get("mode") ?? searchParams.get("type"); // ex: "devis"
-  const ref =
-    searchParams.get("ref") ??
-    searchParams.get("item") ??
-    searchParams.get("product");
-  const presetSubjectFromUrl =
-    searchParams.get("subject") ?? searchParams.get("objet");
-
-  const initialSubject =
-    presetSubjectFromUrl ||
-    (mode === "devis" && ref
-      ? `Demande de devis – ${ref}`
-      : mode === "devis"
-      ? "Demande de devis"
-      : "");
-
-  const initialMessage =
-    mode === "devis" && ref
-      ? `Bonjour,\n\nJe souhaite obtenir un devis pour : ${ref}.\n\nMerci de me préciser le prix, les délais, les conditions de livraison et les modalités de paiement.\n\nBien cordialement,\n`
-      : "";
-
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     company: "",
     email: "",
     phone: "",
-    subject: initialSubject,
-    message: initialMessage,
+    subject: "",
+    message: "",
   });
 
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
+    "idle"
+  );
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -83,7 +58,7 @@ export default function ContactPage() {
       }
 
       setStatus("success");
-      // Si tu veux vider le formulaire après envoi réussi, décommente :
+      // Si tu veux vider le formulaire après envoi réussi, tu peux décommenter :
       // setFormData({
       //   name: "",
       //   company: "",
@@ -98,8 +73,6 @@ export default function ContactPage() {
     }
   };
 
-  const isDevisMode = mode === "devis";
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
       <Header />
@@ -111,9 +84,7 @@ export default function ContactPage() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs font-medium mb-4">
                 <Mail className="w-4 h-4" />
-                <span>
-                  {isDevisMode ? "Demande de devis" : "Contact & demandes de devis"}
-                </span>
+                <span>Contact &amp; demandes de devis</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900">
@@ -134,25 +105,13 @@ export default function ContactPage() {
                 contraintes QHSE, etc.
               </p>
 
-              {isDevisMode && (
-                <p className="mt-3 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs sm:text-sm text-emerald-800">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>
-                    Vous êtes en train de faire une{" "}
-                    <span className="font-semibold">demande de devis</span>
-                    {ref && (
-                      <>
-                        {" "}
-                        pour :{" "}
-                        <span className="font-semibold text-emerald-900">
-                          {ref}
-                        </span>
-                      </>
-                    )}
-                    .
-                  </span>
-                </p>
-              )}
+              <p className="mt-3 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs sm:text-sm text-emerald-800">
+                <ShieldCheck className="w-4 h-4" />
+                <span>
+                  Plus votre description est précise, plus notre réponse sera
+                  adaptée à vos contraintes opérationnelles.
+                </span>
+              </p>
             </div>
           </div>
         </section>
