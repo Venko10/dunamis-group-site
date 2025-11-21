@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Header from "@/components/Header";
@@ -59,7 +58,7 @@ export default function ContactPage() {
       }
 
       setStatus("success");
-      // Si tu veux vider le formulaire après envoi réussi, tu peux décommenter :
+      // Pour vider le formulaire après envoi, décommente :
       // setFormData({
       //   name: "",
       //   company: "",
@@ -317,15 +316,9 @@ export default function ContactPage() {
                   </p>
                   <ul className="space-y-1 text-slate-600">
                     <li>• Le site / dépôt / chantier concerné</li>
-                    <li>
-                      • Le type d&apos;opération (approvisionnement, STS/STT,
-                      maintenance…)
-                    </li>
+                    <li>• Le type d&apos;opération (approvisionnement, STS/STT, maintenance…)</li>
                     <li>• Les délais souhaités et contraintes majeures</li>
-                    <li>
-                      • Les exigences QHSE particulières (ATEX, zones à risque,
-                      etc.)
-                    </li>
+                    <li>• Les exigences QHSE particulières (ATEX, zones à risque, etc.)</li>
                   </ul>
                 </div>
               </div>
