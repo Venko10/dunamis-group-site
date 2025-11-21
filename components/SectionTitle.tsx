@@ -1,27 +1,29 @@
-export default function SectionTitle({
-  kicker,
-  title,
-  subtitle,
-}: {
-  kicker: string;
+type SectionTitleProps = {
+  eyebrow?: string;
   title: string;
-  subtitle?: string;
-}) {
+  align?: "left" | "center";
+};
+
+export default function SectionTitle({
+  eyebrow,
+  title,
+  align = "center",
+}: SectionTitleProps) {
   return (
-    <div className="container">
-      <p
-        className="text-sm font-semibold tracking-widest"
-        style={{ color: "#00C896" }}
-      >
-        {kicker}
-      </p>
-      <h2
-        className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900"
-        style={{ fontFamily: "var(--font-montserrat)" }}
-      >
+    <div
+      className={
+        align === "left" ? "text-left mb-6" : "text-center mb-6"
+      }
+    >
+      {eyebrow && (
+        <div className="text-xs font-medium text-emerald-700 mb-1">
+          {eyebrow}
+        </div>
+      )}
+
+      <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
         {title}
       </h2>
-      {subtitle && <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>}
     </div>
   );
 }
