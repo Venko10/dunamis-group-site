@@ -1,6 +1,6 @@
 "use client";
-export const dynamic = "force-dynamic";
-import { useState, ChangeEvent, FormEvent } from "react";
+
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
@@ -28,6 +28,43 @@ export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
   );
+
+  /**
+   * Pré-remplissage du formulaire à partir de l'URL,
+   * mais SANS useSearchParams -> on lit window.location.search côté client.
+   * Exemple d’URL :
+   *   /contact?mode=devis&ref=Pompe%20API&subject=Demande%20devis
+   */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+
+    const mode = params.get("mode") ?? params.get("type");
+    const ref =
+      params.get("ref") ?? params.get("item") ?? params.get("product");
+    const presetSubjectFromUrl =
+      params.get("subject") ?? params.get("objet");
+
+    const initialSubject =
+      presetSubjectFromUrl ||
+      (mode === "devis" && ref
+        ? `Demande de devis – ${ref}`
+        : mode === "devis"
+        ? "Demande de devis"
+        : "");
+
+    const initialMessage =
+      mode === "devis" && ref
+        ? `Bonjour,\n\nJe souhaite obtenir un devis pour : ${ref}.\n\nMerci de me préciser le prix, les délais, les conditions de livraison et les modalités de paiement.\n\nBien cordialement,\n`
+        : "";
+
+    setFormData((prev) => ({
+      ...prev,
+      subject: initialSubject || prev.subject,
+      message: initialMessage || prev.message,
+    }));
+  }, []);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -316,7 +353,10 @@ export default function ContactPage() {
                   </p>
                   <ul className="space-y-1 text-slate-600">
                     <li>• Le site / dépôt / chantier concerné</li>
-                    <li>• Le type d&apos;opération (approvisionnement, STS/STT, maintenance…)</li>
+                    <li>
+                      • Le type d&apos;opération (approvisionnement, STS/STT,
+                      maintenance…)
+                    </li>
                     <li>• Les délais souhaités et contraintes majeures</li>
                     <li>• Les exigences QHSE particulières (ATEX, zones à risque, etc.)</li>
                   </ul>
