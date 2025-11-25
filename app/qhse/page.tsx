@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
@@ -11,6 +12,7 @@ import {
   BarChart3,
   CheckCircle2,
   Target,
+  Download,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -131,6 +133,19 @@ export default function QHSEPage() {
               <p className="mt-4 text-xs sm:text-sm text-slate-500">
                 La Direction Générale — Dunamis Group
               </p>
+
+              {/* Bouton téléchargement PDF QHSE */}
+              <div className="mt-5">
+                <Link
+                  href="/docs/DUNAMIS_GROUP_Politique_QHSE.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-emerald-600 bg-emerald-600 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 hover:border-emerald-500"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Télécharger la Politique QHSE (PDF)</span>
+                </Link>
+              </div>
             </article>
 
             {/* KPI */}
@@ -318,6 +333,19 @@ export default function QHSEPage() {
                   <li>• Conformité aux réglementations locales et aux standards industriels.</li>
                 </ul>
               </div>
+            </div>
+
+            {/* Bouton téléchargement PDF RSE & ESG */}
+            <div className="mt-8">
+              <Link
+                href="/docs/DUNAMIS_GROUP_Politique_RSE_ESG.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-white px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-100"
+              >
+                <Download className="w-4 h-4" />
+                <span>Télécharger la Politique RSE &amp; ESG (PDF)</span>
+              </Link>
             </div>
           </div>
         </section>
