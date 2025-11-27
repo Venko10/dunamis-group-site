@@ -377,6 +377,134 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        {/* RÉFÉRENCES & CAS D’INTERVENTION */}
+        <section className="py-12 lg:py-16 border-b border-slate-200 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <SectionTitle
+              eyebrow="Références & cas d’intervention"
+              title="Des interventions concrètes pour des sites exigeants"
+              align="left"
+            />
+
+            <p className="mt-3 text-xs sm:text-sm text-slate-700 max-w-3xl">
+              Dunamis Group intervient aux côtés d&apos;acteurs industriels en Côte
+              d&apos;Ivoire et en Afrique de l&apos;Ouest pour sécuriser leurs
+              approvisionnements, fiabiliser les flux logistiques et renforcer la
+              performance QHSE sur le terrain.
+            </p>
+
+            {/* Cartes de cas d’intervention */}
+            <div className="mt-6 grid gap-6 md:grid-cols-3 text-xs sm:text-sm">
+              {/* CAS 1 */}
+              <article className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm flex flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-5 h-5 text-emerald-700" />
+                  <h3 className="text-sm font-semibold text-slate-900">
+                    Dépôt pétrolier & opérations STS/STT
+                  </h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-2">
+                  Accompagnement d&apos;un opérateur pétrolier pour la
+                  préparation d&apos;opérations STS/STT, le barèmage des
+                  capacités et la mise à jour des procédures QHSE terrain.
+                </p>
+                <p className="text-slate-600 mt-auto">
+                  <span className="font-semibold text-slate-900">
+                    Résultat :
+                  </span>{" "}
+                  opérations mieux planifiées, réduction des aléas et meilleure
+                  traçabilité des volumes transférés.
+                </p>
+              </article>
+
+              {/* CAS 2 */}
+              <article className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm flex flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <Truck className="w-5 h-5 text-emerald-700" />
+                  <h3 className="text-sm font-semibold text-slate-900">
+                    Site minier & logistique d’approvisionnement
+                  </h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-2">
+                  Support aux équipes supply chain d&apos;un site minier pour
+                  structurer les besoins, prioriser les familles critiques et
+                  améliorer la coordination entre achats, magasin et opérations.
+                </p>
+                <p className="text-slate-600 mt-auto">
+                  <span className="font-semibold text-slate-900">
+                    Résultat :
+                  </span>{" "}
+                  meilleure visibilité sur les stocks, délais maîtrisés et
+                  réduction des ruptures terrain.
+                </p>
+              </article>
+
+              {/* CAS 3 */}
+              <article className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm flex flex-col">
+                <div className="flex items-center gap-2 mb-2">
+                  <Layers className="w-5 h-5 text-emerald-700" />
+                  <h3 className="text-sm font-semibold text-slate-900">
+                    Agro-BTP & centres de services
+                  </h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed mb-2">
+                  Mise en place d&apos;un dispositif d&apos;approvisionnement
+                  pour un projet agro-industriel et des chantiers BTP : EPI,
+                  outillage, consommables et support méthodologique.
+                </p>
+                <p className="text-slate-600 mt-auto">
+                  <span className="font-semibold text-slate-900">
+                    Résultat :
+                  </span>{" "}
+                  un interlocuteur unique et des solutions adaptées aux
+                  contraintes locales.
+                </p>
+              </article>
+            </div>
+
+            {/* Chiffres clés (adaptables) */}
+            <div className="mt-8 grid gap-4 sm:grid-cols-3 text-xs sm:text-sm">
+              <div className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm">
+                <p className="text-[11px] uppercase tracking-wide text-slate-500">
+                  Expérience cumulée
+                </p>
+                <p className="mt-1 text-xl font-semibold text-slate-900">
+                  10+ ans
+                </p>
+                <p className="mt-1 text-slate-600">
+                  d&apos;interventions en achats, logistique et opérations dans
+                  les secteurs Oil &amp; Gas, Mines &amp; industrie.
+                </p>
+              </div>
+
+              <div className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm">
+                <p className="text-[11px] uppercase tracking-wide text-slate-500">
+                  Zones d&apos;intervention
+                </p>
+                <p className="mt-1 text-xl font-semibold text-slate-900">
+                  Côte d&apos;Ivoire &amp; Afrique de l&apos;Ouest
+                </p>
+                <p className="mt-1 text-slate-600">
+                  Une connaissance fine des réalités terrains, portuaires et
+                  routières de la sous-région.
+                </p>
+              </div>
+
+              <div className="border border-slate-200 rounded-2xl bg-white p-4 shadow-sm">
+                <p className="text-[11px] uppercase tracking-wide text-slate-500">
+                  Approche relationnelle
+                </p>
+                <p className="mt-1 text-xl font-semibold text-slate-900">
+                  Acheteurs, logistique &amp; HSE
+                </p>
+                <p className="mt-1 text-slate-600">
+                  Un interlocuteur capable de parler le langage des métiers
+                  opérationnels et des directions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA CONTACT FINAL */}
         <section className="py-10 bg-slate-50 border-t border-slate-200">
