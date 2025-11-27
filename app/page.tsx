@@ -7,14 +7,17 @@ import {
   Clock,
   CheckCircle2,
   Truck,
-  Wrench,
   Boxes,
   Layers,
+  Leaf,
+  BarChart3,
+  Target,
 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
-  title: "Dunamis Group — Approvisionnements sécurisés & solutions opérationnelles",
+  title:
+    "Dunamis Group — Approvisionnements sécurisés & solutions opérationnelles",
   description:
     "Approvisionnements sécurisés, logistique maîtrisée et support QHSE pour les secteurs Oil & Gas, Mines & industrie, Agro-BTP & infrastructures.",
 };
@@ -298,6 +301,79 @@ export default function HomePage() {
                   </Link>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION QHSE PREMIUM */}
+        <section className="py-16 bg-white border-t border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Engagement QHSE et excellence opérationnelle
+            </h2>
+
+            <p className="mt-3 text-slate-700 text-sm leading-relaxed">
+              Dunamis Group garantit une maîtrise totale de la sécurité, de la
+              conformité et de la performance dans toutes ses opérations :
+              terminaux, dépôts, sites industriels, opérations STS/STT et
+              approvisionnements complexes.
+            </p>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 text-sm">
+              <div className="p-4 border rounded-lg bg-slate-50">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                  <strong className="text-slate-900">
+                    Sécurité &amp; conformité
+                  </strong>
+                </div>
+                <ul className="mt-2 space-y-1 text-slate-600">
+                  <li>• Analyse de risques systématique</li>
+                  <li>• EPI &amp; équipements certifiés</li>
+                  <li>• Conformité ATEX &amp; exigences client</li>
+                </ul>
+              </div>
+
+              <div className="p-4 border rounded-lg bg-slate-50">
+                <div className="flex items-center gap-2 mb-2">
+                  <BarChart3 className="w-4 h-4 text-emerald-700" />
+                  <strong className="text-slate-900">
+                    Performance opérationnelle
+                  </strong>
+                </div>
+                <ul className="mt-2 space-y-1 text-slate-600">
+                  <li>• Disponibilité opérationnelle visée : 99%</li>
+                  <li>• Délai de réponse &lt; 48h sur les demandes</li>
+                  <li>• Reporting &amp; traçabilité des opérations</li>
+                </ul>
+              </div>
+
+              <div className="p-4 border rounded-lg bg-slate-50">
+                <div className="flex items-center gap-2 mb-2">
+                  <Leaf className="w-4 h-4 text-emerald-700" />
+                  <strong className="text-slate-900">Exigences ESG</strong>
+                </div>
+                <ul className="mt-2 space-y-1 text-slate-600">
+                  <li>• Efficience énergétique &amp; limitation des impacts</li>
+                  <li>• Sécurité et développement des équipes</li>
+                  <li>• Gouvernance et conformité aux standards</li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="mt-8 text-xs text-slate-500 italic">
+              « La Direction s’engage à déployer les moyens humains, techniques
+              et organisationnels nécessaires à la sécurité, à la performance et
+              à l’amélioration continue des opérations. »
+            </p>
+
+            <div className="mt-4">
+              <Link
+                href="/qhse"
+                className="inline-flex items-center text-xs sm:text-sm font-semibold text-emerald-700 hover:text-emerald-600"
+              >
+                Découvrir notre politique QHSE détaillée
+              </Link>
             </div>
           </div>
         </section>
